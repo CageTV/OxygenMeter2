@@ -27,3 +27,9 @@ cmake -B build -S .
 ```
 ## License
 [MIT](LICENSE)
+
+## Fork: Skyrim 1.7.x
+
+The source already targets Skyrim 1.7.x through its CommonLibSSE submodule. This fork only moves the vcpkg baseline in `vcpkg.json` to a current vcpkg: the submodule's `commonlib-shared` port asks for newer dependency versions than the old baseline knows about, so the old baseline no longer configures.
+
+Build with `cmake --preset vs2026-ae` and `cmake --build --preset vs2026-ae`, with `VCPKG_ROOT` pointing at a vcpkg checkout from October 2026 or later. The DLL declares compatibility with Skyrim 1.7.104 only; older game versions keep using the earlier release. The release zip contains only the DLL: install Oxygen Meter 2 from Nexus first and let the DLL overwrite its own.
